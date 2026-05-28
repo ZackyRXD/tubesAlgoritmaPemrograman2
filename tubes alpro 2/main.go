@@ -1,7 +1,7 @@
 package main
 import "fmt"
 
-// punya devia (nanti dihapus)
+// Devia - tampilan menu
 func menu() {
 	fmt.Println("\n+++ APOTEK-SMART +++")
 	fmt.Println("1. Tambah Data Obat")
@@ -15,7 +15,7 @@ func menu() {
 	fmt.Print("Pilih menu: ")
 }
 
-// punya devia (nanti dihapus)
+// Devia - Statistik Obat
 func statistikObat() {
 
 	fmt.Println("\n+++ APOTEK-SMART +++")
@@ -33,5 +33,51 @@ func statistikObat() {
 
 	for i := 0; i < len(dataObat); i++ {
 		fmt.Println("-", dataObat[i].nama, "| Exp:", dataObat[i].kadaluarsa)
+	}
+}
+
+// Devia - main program
+func main() {
+
+	var pilih int
+	var nama string
+
+	for {
+
+		menu()
+		fmt.Scan(&pilih)
+
+		switch pilih {
+
+		case 1:
+			tambahObat()
+
+		case 2:
+			ubahObat()
+
+		case 3:
+			hapusObat()
+
+		case 4:
+			tampilData()
+
+		case 5:
+			fmt.Print("Masukkan nama obat: ")
+			fmt.Scan(&nama)
+			sequentialSearch(nama)
+
+		case 6:
+			selectionSort()
+
+		case 7:
+			statistikObat()
+
+		case 0:
+			fmt.Println("Program selesai.")
+			return
+
+		default:
+			fmt.Println("Menu tidak tersedia.")
+		}
 	}
 }
